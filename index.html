@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Page Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">OnePage Blog</div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#posts">Posts</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="container hero-content">
+        <p class="eyebrow">Blog & Discovery</p>
+        <h1>Welcome to a one-page writing experience</h1>
+        <p>Discover fresh ideas, quick tips, and inspiring content in a sleek one-page blog layout.</p>
+        <div class="hero-actions">
+          <a href="#posts" class="btn btn-primary">View Posts</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="posts" class="posts-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Featured Posts</p>
+          <h2>Latest published content</h2>
+        </div>
+
+        <div class="posts-grid" id="postsGrid">
+          <article class="post-card">
+            <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=800&q=80" alt="Writing process" />
+            <div class="post-meta">March 2026 · Design</div>
+            <h3>Minimal Blog Design Tips</h3>
+            <p>Create a professional-looking blog with clean layout, strong readability, and smart color choices.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </article>
+
+          <article class="post-card">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="Writing code" />
+            <div class="post-meta">April 2026 · Web Dev</div>
+            <h3>Top 5 JavaScript Techniques</h3>
+            <p>Boost your development workflow with practical JavaScript methods for modern web projects.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </article>
+
+          <article class="post-card">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Creative work" />
+            <div class="post-meta">May 2026 · Productivity</div>
+            <h3>4 Steps to Improve Productivity</h3>
+            <p>Increase your efficiency with simple habits that fit naturally into your daily routine.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>This blog is a space for discovery and sharing</h2>
+          <p>Designed for readers who want valuable content in a fast, single-page format. It covers design ideas, productivity, and coding tips.</p>
+          <ul>
+            <li>Fresh blog posts</li>
+            <li>Modern web design advice</li>
+            <li>Practical JavaScript tips</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Blog author" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Send your questions</h2>
+          <p>Leave a message for feedback, collaboration, or any other inquiry.</p>
+        </div>
+        <form id="contactForm">
+          <label>
+            <span>Name</span>
+            <input type="text" id="name" placeholder="Enter your name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea id="message" rows="5" placeholder="Write your message" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 OnePage Blog. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
