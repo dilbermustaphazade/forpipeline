@@ -1,0 +1,24 @@
+{
+  // Standart CSS kuralları paketini kullan (temel kuralları içerir)
+  "extends": "stylelint-config-standard",
+  "rules": {
+    // @ kurallarında bilinmeyeni yok say (örn: @supports)
+    "at-rule-no-unknown": null,
+    // Bilinmeyen sözde elementlere izin ver
+    "selector-pseudo-element-no-unknown": null,
+    // Bilinmeyen özelliklere izin ver (vendor prefixleri için)
+    "property-no-unknown": null,
+    // CSS başlıklandırmasında esneklik
+    "no-descending-specificity": null,
+    // Deklarasyon bloklarını noktalı virgülle bitir
+    "declaration-block-trailing-semicolon": "always",
+    // Boş bloklar istenmez
+    "block-no-empty": true,
+    // Geçersiz renk kodlarına izin verme
+    "color-no-invalid-hex": true,
+    // İzin verilen birimler (em, rem, %, px, vw, vh vb.)
+    "unit-allowed-list": ["em", "rem", "%", "px", "vw", "vh", "deg", "s", "ms", "fr"],
+    // Maksimum 2 evrensel seçici (*) kullanabilir
+    "selector-max-universal": 2
+  }
+}

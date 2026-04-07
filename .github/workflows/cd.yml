@@ -1,31 +1,48 @@
+# GitHub Actions CD Workflow - Continuous Deployment Pipeline
+# Bu workflow kod başarıyla test geçtikten sonra Vercel'e otomatik yayınlar
+# This workflow automatically deploys your site to Vercel after successful CI
+
 name: CD - Deploy to Vercel
 
+# Workflow tetikleyicileri
 on:
   push:
+    # main veya master branchlerine push olduğunda doğrudan çalışır
     branches: [ main, master ]
   workflow_run:
+    # CI workflow başarıyla tamamlandıktan sonra da çalışır
     workflows: [ "CI - Validation & Linting" ]
     types: [ completed ]
     branches: [ main, master ]
 
+# İş tanımlaması
 jobs:
   deploy:
+    # İşin adı
     name: Deploy to Vercel
+    # Ubuntu'da çalışır
     runs-on: ubuntu-latest
+    # Bu şart sağlanırsa çalışır (push ise veya CI başarıysa)
     if: ${{ github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     
     steps:
+      # 1. Kod deposunu indir
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Vercel'e yayınla
       - name: Deploy to Vercel
+        # amondnet/vercel-action - Vercel deployment aracı
         uses: amondnet/vercel-action@v25
         with:
+          # GitHub Secrets'tan Vercel kimlik bilgilerini al
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          # --prod = Production ortamına yayınla (canlı siteler)
           vercel-args: --prod
 
+      # 3. Tamamlandı bilgisi
       - name: Deployment successful
         run: |
           echo "✓ Deployment to Vercel completed successfully"

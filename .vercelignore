@@ -1,7 +1,17 @@
+# Vercel deployment sırasında yüklenmeyecek dosyalar
+# Bu dosyalar Vercel'de gerekli değildir (hız için)
+
+# Git deposu (deployment'da gerekli değil)
 .git
+# Git ayarları
 .gitignore
+# Node modülleri (Vercel kendi kurar)
 node_modules
+# Ortam değişkenleri (private dosya)
 .env
+# Yerel ortam dosyası
 .env.local
+# macOS sistem dosyası
 .DS_Store
+# Log dosyaları
 *.log

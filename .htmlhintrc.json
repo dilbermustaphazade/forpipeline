@@ -1,0 +1,24 @@
+{
+  // HTMLHint tavsiye edilen kuralları kullan
+  "extends": "htmlhint:recommended",
+  "rules": {
+    // Tehlikeli karakterleri kontrol etme (false = devre dışı)
+    "attr-unsafe-chars": false,
+    // Özellikleri çift tırnak içinde koymak zorunlu değil
+    "attr-value-double-quotes": false,
+    // HTML dökümanı DOCTYPE ile başlamalı
+    "doctype-first": true,
+    // Açılan ve kapanan tag'ler eşleşmeli
+    "tag-pair": true,
+    // Self-closing tag'ler gerekirse kapanmalı (true yapabilir)
+    "tag-self-close": false,
+    // Özel karakterler kaçırılmalı
+    "spec-char-escape": true,
+    // Her ID benzersiz olmalı (sadece bir kez kullanılmalı)
+    "id-unique": true,
+    // src ve href öznitelikleri boş olmamalı
+    "src-not-empty": true,
+    // HTML dökümanında <title> etiketi olmalı
+    "title-require": true
+  }
+}

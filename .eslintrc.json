@@ -1,0 +1,33 @@
+{
+  // JavaScript ortamı ayarları
+  "env": {
+    // Tarayıcı ortamı (window, document vb. tanımlı)
+    "browser": true,
+    // Modern JavaScript özellikleri (ES2021 ve üstü)
+    "es2021": true
+  },
+  // Airbnb kuralları paketini kullan (popüler ve sıkı kurallar)
+  "extends": "airbnb-base",
+  // Parser ayarları
+  "parserOptions": {
+    // JavaScript sürümü
+    "ecmaVersion": "latest",
+    // Modül sistemi (import/export kullan)
+    "sourceType": "module"
+  },
+  // ESLint kuralları (uyarı veya hata)
+  "rules": {
+    // Kullanılmayan değişkenleri uyar (hata değil)
+    "no-unused-vars": ["warn"],
+    // console.log kullanımına izin ver (hata etme)
+    "no-console": "off",
+    // Anonim fonksiyonlar isimlendirilmek zorunda değildir
+    "func-names": "off",
+    // Kısa özellikleri kullanmak zorunlu değildir
+    "object-shorthand": "off",
+    // Ok fonksiyonu yerine regular function kullanabilir
+    "prefer-arrow-callback": "off",
+    // İç içe geçmiş değişkenler olabilir
+    "no-shadow": "off"
+  }
+}
