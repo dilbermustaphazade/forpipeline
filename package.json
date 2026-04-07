@@ -1,26 +1,15 @@
 {
-  // Projenin adı
   "name": "one-page-blog",
-  // Sürüm numarası
   "version": "1.0.0",
-  // Projenin açıklaması
   "description": "A simple one-page blog deployed on Vercel",
-  // Komutlar (npm run [command] ile çalışır)
   "scripts": {
-    // Statik site olduğu için build gerekmez, sadece mesaj göster
     "build": "echo 'Static site - no build needed'"
   },
-  // Geliştirme sırasında kullanılan araçlar (production'da gerekli değil)
   "devDependencies": {
-    // JavaScript linter - kod stilini kontrol eder
     "eslint": "^8.50.0",
-    // ESLint kuralları paketi
     "eslint-config-airbnb-base": "^15.0.0",
-    // CSS linter - CSS stilini kontrol eder
     "stylelint": "^16.0.0",
-    // Stylelint kuralları paketi
     "stylelint-config-standard": "^35.0.0",
-    // HTML validator - HTML hatalarını bulur
     "html-validate": "^8.0.0"
   }
 }
