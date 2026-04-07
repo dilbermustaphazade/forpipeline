@@ -1,72 +1,55 @@
-# GitHub Actions CI Workflow - Continuous Integration Pipeline
+# GitHub Actions CI Workflow - Continuous Integration Pipeline (düzəldilmiş)
 # Bu workflow kod kalitesini kontrol eder ve hataları bulur
-# This workflow runs automated tests and linting on every push and pull request
 
 name: CI - Validation & Linting
 
-# Workflow tetikleyicileri (Ne zaman çalışacağını belirtir)
 on:
   push:
-    # main, master, develop branchlerine push olduğunda çalışır
     branches: [ main, master, develop ]
   pull_request:
-    # Bu branchlere pull request açıldığında çalışır
     branches: [ main, master, develop ]
 
-# İş tanımlamaları (Yapılacak işler)
 jobs:
   validate:
-    # İşin adı
     name: Validate & Lint
-    # Ubuntu'da çalışır (GitHub'ın sağladığı Linux makinesi)
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Kod deposunu indir
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Node.js kur (npm kullanmak için gerekli)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 3. HTML dosyalarını kontrol et
+      - name: Install dependencies
+        run: npm ci
+
       - name: HTML Validation
         run: |
-          npm install -g htmlhint
-          # htmlhint index.html dosyasındaki HTML hatalarını bulur
-          npx htmlhint index.html || true
+          # package.json-da htmlhint varsa npx lokaldan istifadə edəcək
+          npx htmlhint index.html
           echo "✓ HTML validation completed"
 
-      # 4. CSS dosyalarını kontrol et ve otomatik düzelt
       - name: CSS Linting & Fix
         run: |
-          npm install -g stylelint stylelint-config-standard
-          # --fix parametresi otomatik olarak formatı düzeltir
-          npx stylelint "styles.css" --fix || true
-          # Düzeltildikten sonra tekrar kontrol et
-          npx stylelint "styles.css" || true
+          npx stylelint "styles.css" --fix
+          npx stylelint "styles.css"
           echo "✓ CSS linting & auto-fix completed"
 
-      # 5. JavaScript dosyalarını kontrol et ve otomatik düzelt
       - name: JavaScript Linting & Fix
         run: |
-          npm install -g eslint eslint-config-airbnb-base
-          # --fix parametresi JavaScript formatını otomatik düzeltir
-          npx eslint "script.js" --fix || true
-          npx eslint "script.js" || true
+          npx eslint "script.js" --fix
+          npx eslint "script.js"
           echo "✓ JavaScript linting & auto-fix completed"
 
-      # 6. JavaScript syntax hatalarını kontrol et
       - name: JavaScript Syntax Check
         run: |
-          # node -c komut syntax hatalarını bulur
-          node -c script.js
+          # Doğru flag: --check
+          node --check script.js
           echo "✓ JavaScript syntax validated"
 
-      # 7. Son kontrol - Tüm dosyalar var mı?
       - name: Build Preparation
         run: |
           echo "✓ Project structure validated"
