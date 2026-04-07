@@ -30,6 +30,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 1.5 Secrets kontrolü — eksikse daha açıklayıcı hata ver ve abort et
+      - name: Check Vercel secrets
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "::error::VERCEL_TOKEN is not set. Add it under Settings → Secrets and variables → Actions." && exit 1
+          fi
+          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then
+            echo "::error::VERCEL_ORG_ID is not set. Add it under Settings → Secrets and variables → Actions." && exit 1
+          fi
+          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "::error::VERCEL_PROJECT_ID is not set. Add it under Settings → Secrets and variables → Actions." && exit 1
+          fi
+
       # 2. Vercel'e yayınla
       - name: Deploy to Vercel
         # amondnet/vercel-action - Vercel deployment aracı
@@ -47,4 +60,3 @@ jobs:
         run: |
           echo "✓ Deployment to Vercel completed successfully"
           echo "Your blog is now live!"
-          
